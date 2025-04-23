@@ -1,0 +1,110 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+
+.remove-item-button {
+    cursor: pointer;
+}
+
+html {
+    padding: 5%;
+}
+
+html, body {
+    height: 100%;
+}
+
+.app {
+    min-height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.error-container {
+    position: absolute;
+    background-color: rgba(192, 57, 43, .33);
+    border: 1px solid rgba(231, 76, 60, 1.0);
+    border-radius: var(--bs-border-radius);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+span {
+    white-space: pre;
+}
+
+.todo-item {
+    position: relative;
+}
+
+.todo-item:hover {
+    background-image: linear-gradient(rgb(0 0 0/20%) 0 0);
+}
+
+.todo-item-parent {
+    position: absolute;
+    top: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: var(--bs-body-color);
+    border-radius: 50%;
+    opacity: 0;
+    left: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: all 300ms;
+
+    &.showed {
+        left: -25px;
+        opacity: 0.2;
+    }
+
+    &.checked {
+        background-color: rgba(52, 152, 219, 1.0);
+        opacity: 1;
+    }
+}
+
+.todo-item-title {
+    &.completed:before {
+        opacity: 1;
+        color: rgba(46, 204, 113, 1.0);
+    }
+
+    &:before {
+        content: ' ⏺ ';
+        opacity: .2;
+        user-select: none;
+        cursor: pointer;
+    }
+}
+
+.save-hint {
+    text-align: center;
+}
+
+li {
+    //overflow: hidden;
+}
+
+.list-edit {
+    overflow: hidden;
+    transition: all 100ms;
+}
+
+.edit-item-button, .remove-item-button {
+    transition: 300ms all;
+
+    &.hidden {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+}
